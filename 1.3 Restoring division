@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main() {
+    unsigned int dividend, divisor, quotient = 0, remainder = 0, tempDividend, n = 16;
+    printf("Enter dividend and divisor: ");
+    scanf("%u %u", &dividend, &divisor);
+    tempDividend = dividend;
+
+    while (n--) {
+        remainder = (remainder << 1) | ((tempDividend >> n) & 1);
+        if (remainder >= divisor) {
+            remainder -= divisor;
+            quotient = (quotient << 1) | 1;
+        } else {
+            quotient = quotient << 1;
+        }
+    }
+
+    printf("Quotient: %u, Remainder: %u\n", quotient, remainder);
+    return 0;
+}
