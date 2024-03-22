@@ -1,0 +1,19 @@
+ORG 0000H   ; Starting address
+
+LHLD 2050   ; Load the first 16-bit number into HL
+MOV B, H    ; Move the MSB of the first number into register B
+MOV C, L    ; Move the LSB of the first number into register C
+
+LHLD 2052   ; Load the second 16-bit number into HL
+MOV D, H    ; Move the MSB of the second number into register D
+MOV E, L    ; Move the LSB of the second number into register E
+
+MOV A, C    ; Move the LSB of the first number into accumulator
+SUB E       ; Subtract the LSB of the second number
+MOV L, A    ; Store the LSB of the result in register L
+
+MOV A, B    ; Move the MSB of the first number into accumulator
+SBB D       ; Subtract the MSB of the second number with borrow
+MOV H, A    ; Store the MSB of the result in register H
+
+HLT         ; End of program

@@ -1,0 +1,19 @@
+ORG 0000H   
+
+MOV H, M   
+INX H       
+MOV L, M   
+
+INX H       
+MOV B, M    
+INX H       
+MOV C, M    
+
+SUB C       
+MOV L, A  
+
+MOV A, B   
+SBB H       
+MOV H, A   
+
+HLT        
