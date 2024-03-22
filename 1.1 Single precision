@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int printBinary(int n) {
+    for (int i = 31; i >= 0; i--) {
+        printf("%d", (n >> i) & 1);
+        if (i == 31 || i == 23) printf(" ");
+    }
+    printf("\n");
+    return 0; // Returning 0, though it's not utilized in this example
+}
+
+int main() {
+    float f;
+    printf("Enter a float: ");
+    scanf("%f", &f);
+    printBinary(*(int*)&f);
+    return 0;
+}
